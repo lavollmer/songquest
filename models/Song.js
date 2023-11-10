@@ -34,4 +34,4 @@ Song.init(
   }
 );
 
-module.exports = User;
+module.exports = Song;
