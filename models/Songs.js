@@ -5,13 +5,26 @@ class Song extends Model {}
 
 Song.init(
   {
-    first_name: {
+    songTitle: {
       type: DataTypes.STRING
     },
-    lastName: {
-    type: DataTypes.STRING
+
+    artist: {
+      type: DataTypes.STRING
+    },
+
+    yearReleased: {
+      type: DataTypes.INTEGER
+    },
+
+    songLink: {
+      type: DataTypes.STRING
     }
+
+
   },
+
+
 
   {
     sequelize,
