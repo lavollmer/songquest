@@ -1,8 +1,30 @@
 const User = require("./User");
 const Song = require("./Song");
-const Comments = require("./Comments");
+const Comment = require("./Comments");
+
+
+
+User.hasMany(Song, {
+
+})
+
+User.hasMany(Comment, {
+
+})
+
+Song.hasMany(Comment, {
+
+})
+
+Comment.belongsTo(
+    //song? user? 
+)
 
 
 
 
-module.exports = {User, Song, Comments}
+
+
+
+
+module.exports = {User, Song, Comment}
