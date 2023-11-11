@@ -1,7 +1,7 @@
 
 
 const router = require('express').Router();
-const Model = require('../../models/User');
+const Model = require('../../models/Song');
 
 // const Model = User
 

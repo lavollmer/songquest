@@ -6,19 +6,23 @@ class Song extends Model {}
 Song.init(
   {
     songTitle: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
 
     artist: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
 
-    yearReleased: {
-      type: DataTypes.INTEGER
-    },
+    // yearReleased: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false
+    // },
 
     songLink: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     }
 
 
