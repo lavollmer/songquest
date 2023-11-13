@@ -1,7 +1,7 @@
-const {Model, DataTypes} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class User extends Model {}
+class User extends Model { }
 
 User.init(
   {
@@ -9,10 +9,9 @@ User.init(
       type: DataTypes.STRING
     },
     lastName: {
-    type: DataTypes.STRING
+      type: DataTypes.STRING
     }
   },
-
   {
     sequelize,
     timestamps: true,
