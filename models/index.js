@@ -1,16 +1,30 @@
-// import Models
-const Comments = require('./Comments');
-const Songs = require('./Songs')
-const User = require('./User')
-
-//Associations
+const User = require("./User");
+const Song = require("./Song");
+const Comment = require("./Comments");
 
 
+// we should sort this section together
+User.hasMany(Song, {
+
+})
+
+User.hasMany(Comment, {
+
+})
+
+Song.hasMany(Comment, {
+    onDelete:
+})
+
+Comment.belongsTo(
+    //song? user? 
+)
 
 
-//Export
-module.exports = {
-  Comments,
-  Songs,
-  User
-};
+
+
+
+
+
+
+module.exports = {User, Song, Comment}
