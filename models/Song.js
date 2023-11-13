@@ -15,17 +15,18 @@ Song.init(
       allowNull: false
     },
 
-    // yearReleased: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false
-    // },
-
     songLink: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'User',
+        key: 'id',
+      }
     }
-
-
   },
 
 
