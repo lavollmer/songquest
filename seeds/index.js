@@ -1,15 +1,18 @@
 // import the other seed files and run them as a function (bulk create)
 
 const sequelize = require('../config/connection');
-const seedGallery = require('./galleryData');
-const seedPaintings = require('./paintingData');
+const seedUser = require('./user.data');
+const seedComments = require('./comments.data');
+const seedSongs = require('./songs.data');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
-  await seedGallery();
+  await seedUser();
 
-  await seedPaintings();
+  await seedSongs();
+
+  await seedComments();
 
   process.exit(0);
 };
