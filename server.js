@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.static('public'));
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 // handlebars
 const exphbs = require('express-handlebars');
@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 app.use('*', routes);
 
 //const okToSync = (process.env.NODE_ENV === 'production') ? false : true;
-sequelize.sync({force: false}).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
 
