@@ -1,3 +1,39 @@
 /* 
 dummy css file for future use
 */
+
+body {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.pinimg.com/originals/9a/82/8d/9a828d0fc00a2540d35339e3aba5bfcc.jpg");
+  
+    /* Set a specific height */
+    /* height: 100%; */
+    max-width: 1280px;
+    margin: 36px auto !important;
+  
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  .hero-image {
+    max-width: 1280px;
+  }
+
+.SQ {
+    height: 126px;
+}
+
+.Song {
+    height: 126px;
+}
+
+.Quest {
+    height: 126px;
+}
+
+.well {
+    color: white;
+}
