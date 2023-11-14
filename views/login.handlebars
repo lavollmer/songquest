@@ -1,12 +1,15 @@
 <h2 class="login">Login</h2>
 
 <div>
-  <label for="user" class="user">Username:</label>
-  <input type="text" id="user" placeholder="Username">
-  <label for="pass" class="pass">Password:</label>
-  <input type="password" id="pass" placeholder="Password">
-  <button id="logBtn">Login</button>
+  <form class="login-form">
+    <label for="user" class="user">Username:</label>
+    <input type="text" id="user" placeholder="Username">
+    <label for="pass" class="pass">Password:</label>
+    <input type="password" id="pass" placeholder="Password">
+    <button id="logBtn" type="submit">Login</button>
+  </form>
 </div>
+
 
 {{! script directs to login js in client side public folder}}
 <script src="/js/login.js"></script>
