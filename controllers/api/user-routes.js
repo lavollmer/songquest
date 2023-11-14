@@ -15,6 +15,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    //check password for validity
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -48,4 +49,24 @@ router.post('/logout', (req, res) => {
   }
 });
 
+// route to create/add a user using async/await
+//send the route to api/user/signup
+router.post('/signup', async (req, res) => {
+  try {
+    //creating a new variable with the create method on the User Model for username, email and password
+    const userSignupData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    });
+    // if the user is successfully created, the new response will be returned as json
+    res.status(200).json(userSignupData)
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+
 module.exports = router;
+
+
