@@ -4,13 +4,8 @@ const Model = require('../../models/Song');
 // const Model = User
 
 // this should be getting ?? (all songs by user id?)
-<<<<<<< HEAD
 router.get('/', async (res, res) => {
 
-=======
-router.get('/', async (req, res) => {
-  
->>>>>>> main
 })
 
 // this should be connected to the "create a song" button
