@@ -1,12 +1,22 @@
-//select button from login.handlebars
-const button = document.querySelector("button")
-//select username from login.handlebars
-const username = document.querySelector(".userNameLogin")
-//select password from login.handlebars
-const password = document.querySelector("#inputPassword5")
+const loginFormHandler = async (event) => {
+  event.preventDefault();
 
+  const username = document.querySelector("#user").value
+  const password = document.querySelector("#pass").value
 
-//adding event listener to button to listen for click (submit)
-button.addEventListener("click", function (event) {
+  if (username && password) {
+    const response = await fetch('/api/users/login', {
+      method: 'POST',
+      body: JSON.stringify({ username, password }),
+      headers: { 'Content-Type': 'application/json' },
+    });
 
-});
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert("Failed to log in. Please try again.");
+    }
+  }
+};
+
+document.querySelector('.login-form').addEventListener("submit", loginFormHandler)

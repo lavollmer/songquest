@@ -1,5 +1,3 @@
-
-
 const router = require('express').Router();
 const Model = require('../../db/User');
 
@@ -9,9 +7,9 @@ const Model = require('../../db/User');
 router.get('/', async (req, res) => {
   try {
     const payload = await Model.findAll();
-    res.status(200).json({status: 'success', payload})
-  } catch (err){
-    res.status(500).json({status: 'error', sendback: err.message})
+    res.status(200).json({ status: 'success', payload })
+  } catch (err) {
+    res.status(500).json({ status: 'error', sendback: err.message })
   }
 })
 
@@ -19,9 +17,9 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const payload = await Model.findByPk(req.params.id);
-    res.status(200).json({status: 'success', payload})
-  } catch (err){
-    res.status(500).json({status: 'error', sendback: err.message})
+    res.status(200).json({ status: 'success', payload })
+  } catch (err) {
+    res.status(500).json({ status: 'error', sendback: err.message })
   }
 })
 
@@ -29,9 +27,9 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const payload = await Model.create(req.body);
-    res.status(200).json({status: 'success', payload})
-  } catch (err){
-    res.status(500).json({status: 'error', sendback: err.message})
+    res.status(200).json({ status: 'success', payload })
+  } catch (err) {
+    res.status(500).json({ status: 'error', sendback: err.message })
   }
 })
 
@@ -46,9 +44,9 @@ router.put('/:id', async (req, res) => {
         }
       }
     );
-    res.status(200).json({status: 'success', payload})
-  } catch (err){
-    res.status(500).json({status: 'error', sendback: err.message})
+    res.status(200).json({ status: 'success', payload })
+  } catch (err) {
+    res.status(500).json({ status: 'error', sendback: err.message })
   }
 })
 
@@ -60,9 +58,9 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id
       }
     });
-    res.status(200).json({status: 'success'})
-  } catch (err){
-    res.status(500).json({status: 'error', sendback: err.message})
+    res.status(200).json({ status: 'success' })
+  } catch (err) {
+    res.status(500).json({ status: 'error', sendback: err.message })
   }
 })
 

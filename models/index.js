@@ -1,6 +1,6 @@
-const User = require("./User");
-const Song = require("./Song");
-const Comment = require("./Comment");
+const { User } = require("./User");
+const { Song } = require("./Song");
+const { Comment } = require("./Comment");
 
 
 // we hopefully sorted out this section together
@@ -40,4 +40,4 @@ Song.belongsTo(User, {
 
 
 
-module.exports = {User, Song, Comment}
+module.exports = { User, Song, Comment }
