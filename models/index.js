@@ -1,6 +1,6 @@
-const { User } = require("./User");
-const { Song } = require("./Song");
-const { Comment } = require("./Comment");
+const User = require("./User");
+const Song = require("./Song");
+const Comment = require("./Comment");
 
 
 // we hopefully sorted out this section together
@@ -32,9 +32,6 @@ Song.belongsTo(User, {
     // proper business likes SET NULL to never fully delete some information
     // additionally, DELETE routes function more like PUT routes (not using Model.destroy)
 })
-
-
-
 
 
 
