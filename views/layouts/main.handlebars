@@ -14,11 +14,29 @@
   <title>Song Quest</title>
 </head>
 <h1>Song Quest</h1>
+
 {{#if logged_in}}
 <nav>
   <button class="btn" id="logout">Logout</button>
 </nav>
 {{/if}}
+
+{{!sushi's image and welcome to songquest}}
+<div class="hero-image">
+  <div clas="hero-text">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col p-4">
+          <img src="./assets/img/SQ.png" alt="SQ" class="SQ">
+          <img src="./assets/img/Song.png" alt="Song" class="Song">
+          <img src="./assets/img/Quest.png" alt="Quest" class="Quest">
+          <h3 class="well">Welcome to Song Quest, are you ready to level up your Bardic skills?</h3>
+          {{!-- <h2 class="login">Login</h2> --}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <body>
   <main>
