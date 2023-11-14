@@ -5,6 +5,11 @@ const Model = require('../../models/Song');
 
 // const Model = User
 
+// this should be getting ?? (all songs by user id?)
+router.get('/', async (res, res) => {
+  
+})
+
 // this should be connected to the "create a song" button
 router.post('/', async (req, res) => {
   try {
@@ -14,6 +19,11 @@ router.post('/', async (req, res) => {
     res.status(500).json({ status: 'error', sendback: err.message })
   }
 })
+
+// const newProject = await Project.create({
+//   ...req.body,
+//   user_id: req.session.user_id,
+// });
 
 // this should be connected to the "delete this song" button
 // passing in the entire song for req
