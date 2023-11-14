@@ -6,7 +6,7 @@ const Model = require('../../models/Song');
 // const Model = User
 
 // this should be getting ?? (all songs by user id?)
-router.get('/', async (res, res) => {
+router.get('/', async (req, res) => {
   
 })
 

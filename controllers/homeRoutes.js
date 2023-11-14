@@ -1,13 +1,15 @@
 const router = require('express').Router();
-const { Song, Comment } = require("../../models")
+const { Song, Comment } = require("../models")
 
 router.get('/', (req, res) => {
-  const chosenSong = req.params.id
-  // res.render('../../views/song')
+  res.render('login')
 })
 
+router.get('/signup', (req, res) => {
+  res.render('signup')
+})
 
-router.get('/:id', async (req, res) => {
+router.get('/song/:id', async (req, res) => {
   try {
     const dbSongData = await Song.findByPk(req.params.id, {
       include: [
@@ -26,14 +28,13 @@ router.get('/:id', async (req, res) => {
     });
 
     const song = dbSongData.get({ plain: true });
+    console.log(song)
     // 'song' refers to song.handlbar
-    res.render('song', { song });
+    res.render('song', song );
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
-// loggedIn: req.session.loggedIn restricts to logged-in users
 
 module.exports = router;

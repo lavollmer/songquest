@@ -6,18 +6,19 @@ const { User } = require('../../models');
 //logging in based on api/user/login
 router.post('/login', async (req, res) => {
   try {
+    console.log(req.body)
     const userData = await User.findOne({ where: { username: req.body.username } });
-
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
-
+    console.log(userData)
+    const user = userData.get({plain:true})
+    // if (!userData) {
+    //   res
+    //     .status(400)
+    //     .json({ message: 'Incorrect email or password, please try again' });
+    //   return;
+    // }
     //check password for validity
     const validPassword = await userData.checkPassword(req.body.password);
-
+    console.log(validPassword)
     if (!validPassword) {
       res
         .status(400)
@@ -27,10 +28,10 @@ router.post('/login', async (req, res) => {
 
     // session storage
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = user.id;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.json({ user, message: 'You are now logged in!' });
     });
 
   } catch (err) {
