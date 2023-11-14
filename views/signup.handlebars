@@ -1,11 +1,12 @@
 <div class="password-div">
   <h1>Sign Up</h1>
 
-  <form class="row g-3 needs-validation" novalidate>
+  <form class="row g-3 needs-validation signup-form" novalidate>
     {{! email signup section from bootstrap 5.1}}
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      <input type="email" class="form-control email-signup" id="exampleFormControlInput1"
+        placeholder="name@example.com">
     </div>
 
     {{! username signup section from bootstrap 5.1}}
@@ -13,7 +14,7 @@
       <label for="validationCustomUsername" class="form-label">Username</label>
       <div class="input-group has-validation">
         <span class="input-group-text" id="inputGroupPrepend">@</span>
-        <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend"
+        <input type="text" class="form-control user" id="validationCustomUsername" aria-describedby="inputGroupPrepend"
           required>
         <div class="invalid-feedback">
           Please choose a username.
@@ -23,7 +24,7 @@
 
     {{! password signup section from bootstrap 5.1}}
     <label for="inputPassword5" class="form-label">Password</label>
-    <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+    <input type="password" id="inputPassword5" class="form-control pass" aria-describedby="passwordHelpBlock">
     <div id="passwordHelpBlock" class="form-text">
       Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special
       characters, or emoji.
