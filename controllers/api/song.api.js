@@ -34,7 +34,13 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id
       }
     });
-    res.status(200).json({ status: 'success' })
+
+    if (!payload) {
+      res.status(404).json({ message: 'No song found with this id!' });
+      return;
+    }
+
+    res.status(200).json({ status: 'You destroyed the thing!' })
   } catch (err) {
     res.status(500).json({ status: 'error', sendback: err.message })
   }
