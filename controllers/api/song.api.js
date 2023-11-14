@@ -1,5 +1,3 @@
-
-
 const router = require('express').Router();
 const Model = require('../../models/Song');
 
@@ -7,7 +5,7 @@ const Model = require('../../models/Song');
 
 // this should be getting ?? (all songs by user id?)
 router.get('/', async (res, res) => {
-  
+
 })
 
 // this should be connected to the "create a song" button
