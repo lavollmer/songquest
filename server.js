@@ -37,14 +37,9 @@ const sess = {
 };
 app.use(session(sess));
 
-// home page route
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'))
-})
-
 // all other routes are directed elsewhere
 // if routes are breaking, maybe check this first
-app.use('*', routes);
+app.use('/', routes);
 
 //const okToSync = (process.env.NODE_ENV === 'production') ? false : true;
 sequelize.sync({ force: false }).then(() => {
