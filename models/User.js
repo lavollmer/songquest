@@ -3,9 +3,10 @@ const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
 class User extends Model {
-  // async checkPassword(loginPw) {
-  //   return await bcrypt.compareSync(loginPw, this.password);
-  // }
+  checkPassword(loginPw) {
+    console.log('checking password')
+    return bcrypt.compareSync(loginPw, this.password);
+  }
 }
 
 User.init(
@@ -37,6 +38,8 @@ User.init(
         len: [8]
       }
     },
+  
+   
   },
   {
     hooks: {
@@ -51,6 +54,7 @@ User.init(
     underscored: true,
     modelName: 'User'
   }
+
 );
 
 module.exports = User;

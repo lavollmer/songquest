@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/profile'); // once profile is establised
     } else {
       alert("Failed to log in. Please try again.");
     }
