@@ -16,6 +16,7 @@ const newSongHandler = async (event) => {
 
         if (response.ok) {
             alert("you did the thing!")
+            // refresh the song selection on the profile*
         } else {
             alert("failed to add new song, bozo")
         }
