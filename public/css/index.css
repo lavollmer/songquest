@@ -4,23 +4,31 @@ dummy css file for future use
 
 body {
     /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.pinimg.com/originals/9a/82/8d/9a828d0fc00a2540d35339e3aba5bfcc.jpg");
+    background-image: url("https://i.pinimg.com/originals/9a/82/8d/9a828d0fc00a2540d35339e3aba5bfcc.jpg");
   
     /* Set a specific height */
-    /* height: 100%; */
-    max-width: 1280px;
-    margin: 36px auto !important;
+    height: 100%;
+    max-width: 1260px;
+    margin: 25px auto !important;
   
     /* Position and center the image to scale nicely on all screens */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    background-color: rgb(156, 101, 0);
   }
 
   .hero-image {
+
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    margin-top: 25%;
     max-width: 1280px;
   }
+
+  /* .hero-text {
+    margin-top: 50px;
+  } */
 
 .SQ {
     height: 126px;
@@ -34,6 +42,18 @@ body {
     height: 126px;
 }
 
-.well {
+/* .well {
     color: white;
 }
+
+.login {
+    color: white;
+}
+
+.user {
+    color: white;
+}
+
+.pass {
+    color: white;
+} */
