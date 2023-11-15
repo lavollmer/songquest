@@ -39,8 +39,7 @@ router.get('/profile', async (req, res) => {
     song.get({ plain: true })
   })
   console.log(Songs)
-  res.render('profile');
-  res.render("song", Songs)
+  res.render('profile', Songs);
 })
 
 //render profile handlebars template
