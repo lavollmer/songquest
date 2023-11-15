@@ -26,11 +26,13 @@
   <iframe width="560" height="315" src={{songLink}} title="YouTube video player" frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen></iframe>
-  <button class="btn btn-primary deleteSong" data-id="{{id}}" type="button">Delete Song</button>
+  <button class="btn btn-dark deleteSong" data-id="{{id}}" type="button">Delete Song</button>
 </div>
 {{#each Comments as |comment|}}
-<h3>{{comment.author}}</h3>
-<p>{{comment.content}}</p>
+<div class="comment-div">
+  <h3 class="comment-title">{{comment.author}}</h3>
+  <p class="comment-content">{{comment.content}}</p>
+</div>
 {{/each}}
 <div class="d-grid gap-2 d-md-block">
   <form>
