@@ -34,7 +34,10 @@ router.get('/signup', (req, res) => {
 // })
 
 router.get('/profile', async (req, res) => {
-  const songsData = await Song.findAll({ where: { user_id: req.session.user_id } });
+  const songsData = await Song.findAll({
+    where: { user_id: req.session.user_id },
+    include: { model: Comment }
+  });
   const songs = songsData.map((song) => song.get({ plain: true }))
   console.log(songs)
   res.render('profile', songs);
