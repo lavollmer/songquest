@@ -1,3 +1,4 @@
+
 const { Song } = require('../../models');
 const router = require('express').Router();
 
@@ -5,6 +6,7 @@ const router = require('express').Router();
 // const Model = User
 
 // this should be getting ?? (all songs by user id?)
+
 router.get('/', async (req, res) => {
   const songsData = await Song.findAll({ where: { user_id: req.session.user_id } });
    const Songs = songsData.map((song) => {
@@ -12,6 +14,7 @@ router.get('/', async (req, res) => {
    })
    console.log(songs)
    res.render("song", Songs)
+
 })
 
 // this should be connected to the "create a song" button
