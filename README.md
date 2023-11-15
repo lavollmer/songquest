@@ -1,6 +1,8 @@
 # SongQuest
 
-## Project Description
+## Home Page
+
+![Preview Screenshot]()
 
 ## Usage
 
