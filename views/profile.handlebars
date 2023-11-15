@@ -1,9 +1,22 @@
 <h1>Profile Page</h1>
 
 <div class="d-grid gap-2 d-md-block">
-  <form class="createSong">
-    <button class="btn btn-primary" type="button">Create a New Song</button>
-    {{!-- <button class="btn btn-primary deleteSong" type="button">Delete Song</button> --}}
+  <form>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Song Title</span>
+      <input id="song-title" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Artist</span>
+      <input id="song-artist" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Song Link</span>
+      <input id="song-link" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div>
+    <button class="btn btn-primary createSong" type="button">Create a New Song</button>
   </form>
 </div>
 
@@ -19,6 +32,14 @@
 <h3>{{comment.author}}</h3>
 <p>{{comment.content}}</p>
 {{/each}}
-{{!-- add new comment form/button here (author, content) + user_id from session (plus song_id somehow) handlebars? --}}
+<div class="d-grid gap-2 d-md-block">
+  <form>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Enter Comment</span>
+      <input id="comment-content" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    </div>
+    <button class="btn btn-primary newComment" data-id="{{id}}" type="button">New Comment</button>
+  </form>
+</div>
 {{/each}}
 <script src="/js/song.js"></script>

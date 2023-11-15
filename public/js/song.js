@@ -6,24 +6,24 @@ const newSongHandler = async (event) => {
   const songLink = document.querySelector("#song-link").value.trim();
 
   if (songTitle && artist && songLink) {
-    const response = await fetch("/api/song.api", {
+    const response = await fetch("/api/song", {
       method: "POST",
-      body: JSON.stringify({ songTitle, artist, songLink }),
-      header: {
-        "Content-Type": "application/ json",
+      body: JSON.stringify( {songTitle, artist, songLink }),
+      headers: {
+        "Content-Type": "application/json",
       },
     })
 
     if (response.ok) {
-      alert("you did the thing!")
+      console.log("you did the thing!")
       document.location.replace('/profile');
     } else {
-      alert("failed to add new song, bozo")
+      console.log("failed to add new song, bozo")
     }
   }
 }
 
-document.querySelector('.createSong').addEventListener("submit", newSongHandler)
+document.querySelector('.createSong').addEventListener("click", newSongHandler)
 
 
 const delButtonHandler = async (event) => {
@@ -44,3 +44,30 @@ const delButtonHandler = async (event) => {
 };
 
 document.querySelector('.deleteSong').addEventListener("click", delButtonHandler)
+
+const newCommentHandler = async (event) => {
+  event.preventDefault();
+
+  const content = document.querySelector("#comment-content").value.trim();
+  const song_id = document.querySelector("#comment-content").value.trim();
+
+  if (content) {
+    const song_id = event.target.getAttribute('data-id');
+    const response = await fetch(`/api/comment/${song_id}`, {
+      method: "POST",
+      body: JSON.stringify( {content} ),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+
+    if (response.ok) {
+      console.log("you did the thing!")
+      document.location.replace('/profile');
+    } else {
+      console.log("failed to add new song, bozo")
+    }
+  }
+}
+
+document.querySelector('.newComment').addEventListener("click", newCommentHandler)
