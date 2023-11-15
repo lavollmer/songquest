@@ -20,6 +20,7 @@ router.get('/', async (req, res) => {
 // this should be connected to the "create a song" button
 router.post('/', async (req, res) => {
   try {
+    console.log(req.body)
     const payload = await Song.create({...req.body,
       user_id: req.session.user_id,});
     res.status(200).json({ status: 'success', payload })

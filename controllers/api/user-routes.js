@@ -28,6 +28,7 @@ router.post('/login', async (req, res) => {
 
     // session storage
     req.session.save(() => {
+      req.session.username = user.username;
       req.session.user_id = user.id;
       req.session.logged_in = true;
 
@@ -60,6 +61,11 @@ router.post('/signup', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
+    req.session.save(() => {
+      req.session.user_id = user.id;
+      req.session.logged_in = true;
+    });
+    res.json({ user, message: 'You are now logged in!' });
     // if the user is successfully created, the new response will be returned as json
     res.status(200).json(userSignupData)
   } catch (err) {
