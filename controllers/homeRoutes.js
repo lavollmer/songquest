@@ -1,10 +1,26 @@
 const router = require('express').Router();
 const { Song, Comment } = require("../models")
+//require in withAuth utils folder (code taken from Activity 23 Unit MVC)
+const withAuth = require('../utils/auth');
 
 //render login handlebars template
-router.get('/', (req, res) => {
-  res.render('login')
-})
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const userAuth = await User.findAll({
+      attributes: ({ username, password })
+    });
+    //taking returned data of userAuth and changing it from an array to plain text
+    const userLoggedIn = userAuth.map((userDataTwo) => userDataTwo.get({ plain: true }))
+    //render the login handlebars template with the 2nd argument of the plain text data and logged_In status of yes
+    res.render('login', {
+      userLoggedIn,
+      logged_in: req.session.logged_in,
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err.message)
+  }
+});
 
 //render signup handlebars template
 router.get('/signup', (req, res) => {
