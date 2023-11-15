@@ -1,10 +1,12 @@
 {{!-- insert song html code here --}}
-
+{{#each Songs as |song|}}
 <div>
   <iframe width="560" height="315" src={{songLink}} title="YouTube video player" frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen></iframe>
+    {{!-- delete button  --}}
 </div>
 {{#each Comments as |comment|}}
 <p>{{author}}</p>
+{{/each}}
 {{/each}}

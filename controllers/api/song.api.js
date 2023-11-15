@@ -1,17 +1,27 @@
+
+const { Song } = require('../../models');
 const router = require('express').Router();
-const Model = require('../../models/Song');
+
 
 // const Model = User
 
 // this should be getting ?? (all songs by user id?)
-router.get('/', async (res, res) => {
+
+router.get('/', async (req, res) => {
+  const songsData = await Song.findAll({ where: { user_id: req.session.user_id } });
+   const Songs = songsData.map((song) => {
+    song.get({plain:true})
+   })
+   console.log(songs)
+   res.render("song", Songs)
 
 })
 
 // this should be connected to the "create a song" button
 router.post('/', async (req, res) => {
   try {
-    const payload = await Model.create(req.body);
+    const payload = await Song.create({...req.body,
+      user_id: req.session.user_id,});
     res.status(200).json({ status: 'success', payload })
   } catch (err) {
     res.status(500).json({ status: 'error', sendback: err.message })
@@ -27,7 +37,7 @@ router.post('/', async (req, res) => {
 // passing in the entire song for req
 router.delete('/:id', async (req, res) => {
   try {
-    const payload = await Model.destroy({
+    const payload = await Song.destroy({
       where: {
         id: req.params.id
       }
