@@ -52,7 +52,7 @@ router.post('/logout', (req, res) => {
 });
 
 // route to create/add a user using async/await
-//send the route to api/user/signup
+//send the route to api/users/signup
 router.post('/signup', async (req, res) => {
   try {
     //creating a new variable with the create method on the User Model for username, email and password
@@ -61,13 +61,17 @@ router.post('/signup', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
+    console.log(userSignupData);
+    const userSignup = userSignupData.get({ plain: true })
     req.session.save(() => {
-      req.session.user_id = user.id;
+      req.session.user_id = userSignup.id;
+      req.session.username = userSignup.username;
+      req.session.email = userSignup.email;
       req.session.logged_in = true;
     });
-    res.json({ user, message: 'You are now logged in!' });
+    res.status(200).json({ userSignupData, message: 'You are now logged in!' });
     // if the user is successfully created, the new response will be returned as json
-    res.status(200).json(userSignupData)
+    //res.status(200).json(userSignupData)
   } catch (err) {
     res.status(400).json(err);
   }
