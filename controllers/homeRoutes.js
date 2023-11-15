@@ -4,19 +4,19 @@ const { Song, Comment } = require("../models")
 // const withAuth = require('../utils/auth');
 
 //render login handlebars template
-router.get('/', async (req, res) => {
+router.get('/', async (req, res) => { // withAuth before async,
   try {
-    const userAuth = await User.findAll({
-      attributes: ({ username, password })
-    });
+    //const userAuth = await User.findAll({
+    //   attributes: ({ username, password })
+    // });
     //taking returned data of userAuth and changing it from an array to plain text
-    const userLoggedIn = userAuth.map((userDataTwo) => userDataTwo.get({ plain: true }))
+    //const userLoggedIn = userAuth.map((userDataTwo) => userDataTwo.get({ plain: true }))
     //render the login handlebars template with the 2nd argument of the plain text data and logged_In status of yes
-    res.render('login', {
-      userLoggedIn,
-      logged_in: req.session.logged_in,
-    });
-
+    res.render('login', //{
+      //userLoggedIn,
+      //logged_in: req.session.logged_in,
+      //}
+    )
   } catch (err) {
     console.log(err);
     res.status(400).json(err.message)
@@ -28,47 +28,61 @@ router.get('/', async (req, res) => {
   })
 
   //render profile handlebars template
-  router.get('/profile', (req, res) => {
-    res.render('profile')
-  })
+  // router.get('/profile', (req, res) => {
+  //   res.render('profile')
+  // })
 
   router.get('/profile', async (req, res) => {
     const songsData = await Song.findAll({ where: { user_id: req.session.user_id } });
     const Songs = songsData.map((song) => {
       song.get({ plain: true })
     })
-    console.log(songs)
+    console.log(Songs)
+    res.render('profile');
     res.render("song", Songs)
 
-  })
+    //render profile handlebars template
+    router.get('/profile', (req, res) => {
+      res.render('profile')
+    })
 
-  // unused at present, useful for reference
-  router.get('/song/:id', async (req, res) => {
-    try {
-      const dbSongData = await Song.findByPk(req.params.id, {
-        include: [
-          {
-            model: Comment,
-            // attributes: [
-            //   'id',
-            //   'title',
-            //   'artist',
-            //   'exhibition_date',
-            //   'filename',
-            //   'description',
-            // ],
-          },
-        ],
-      });
+    router.get('/profile', async (req, res) => {
+      const songsData = await Song.findAll({ where: { user_id: req.session.user_id } });
+      const Songs = songsData.map((song) => {
+        song.get({ plain: true })
+      })
+      console.log(songs)
+      res.render("song", Songs)
 
-      const song = dbSongData.get({ plain: true });
-      console.log(song)
-      // 'song' refers to song.handlbar
-      res.render('song', song);
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
-  });
+    })
 
-  module.exports = router;
+    // unused at present, useful for reference
+    router.get('/song/:id', async (req, res) => {
+      try {
+        const dbSongData = await Song.findByPk(req.params.id, {
+          include: [
+            {
+              model: Comment,
+              // attributes: [
+              //   'id',
+              //   'title',
+              //   'artist',
+              //   'exhibition_date',
+              //   'filename',
+              //   'description',
+              // ],
+            },
+          ],
+        });
+
+        const song = dbSongData.get({ plain: true });
+        console.log(song)
+        // 'song' refers to song.handlbar
+        res.render('song', song);
+      } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+      }
+    });
+
+    module.exports = router;
