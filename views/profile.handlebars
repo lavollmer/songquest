@@ -1,8 +1,8 @@
 <h1>Profile Page</h1>
 
 <div class="d-grid gap-2 d-md-block">
-  <form>
-    <button class="btn btn-primary createSong" type="button">Create a New Song</button>
+  <form class="createSong">
+    <button class="btn btn-primary" type="button">Create a New Song</button>
     {{!-- <button class="btn btn-primary deleteSong" type="button">Delete Song</button> --}}
   </form>
 </div>
@@ -13,12 +13,12 @@
   <iframe width="560" height="315" src={{songLink}} title="YouTube video player" frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen></iframe>
-  <button class="btn btn-primary deleteSong" type="button">Delete Song</button>
-  <p id="{{id}}" class="hidden">{{id}}</p>
+  <button class="btn btn-primary deleteSong" data-id="{{id}}" type="button">Delete Song</button>
 </div>
-{{#each songs.Comments as |comment|}}
+{{#each Comments as |comment|}}
 <h3>{{comment.author}}</h3>
 <p>{{comment.content}}</p>
 {{/each}}
 {{!-- add new comment form/button here (author, content) + user_id from session (plus song_id somehow) handlebars? --}}
 {{/each}}
+<script src="/js/song.js"></script>

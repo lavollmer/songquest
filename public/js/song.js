@@ -23,14 +23,15 @@ const newSongHandler = async (event) => {
   }
 }
 
-document.querySelector('.song-form').addEventListener("submit", loginFormHandler)
+document.querySelector('.createSong').addEventListener("submit", newSongHandler)
 
 
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-
-    const response = await fetch(`/api/song.api/${id}`, {
+    console.log(id)
+    
+    const response = await fetch(`/api/song/${id}`, {
       method: 'DELETE',
     });
 
@@ -42,4 +43,4 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document.querySelector('.deleteSong').addEventListener("delete", loginFormHandler)
+document.querySelector('.deleteSong').addEventListener("click", delButtonHandler)
