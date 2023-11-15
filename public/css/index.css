@@ -19,6 +19,14 @@ body {
     background-color: rgb(156, 101, 0);
 }
 
+h1 {
+    color: aliceblue;
+}
+
+.logout-text {
+    color: aliceblue;
+}
+
 .hero-image {
 
     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
@@ -40,6 +48,27 @@ body {
 
 .Quest {
     height: 126px;
+}
+
+/* .comment-title {
+    color: aliceblue;
+    background-color: black;
+}
+
+.comment-content {
+    color: aliceblue;
+    background-color: black;
+} */
+
+.comment-div {
+    display: flex;
+    flex-direction: column;
+    color: aliceblue;
+    background-color: black;
+}
+
+.deleteSong {
+    display: block;
 }
 
 /* .well {
