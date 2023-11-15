@@ -4,7 +4,8 @@
   <iframe width="560" height="315" src={{songLink}} title="YouTube video player" frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen></iframe>
-    {{!-- delete button  --}}
+    <button class="btn btn-primary deleteSong" type="button">Delete Song</button>
+    <p id="{{id}}" class="hidden">{{id}}</p>
 </div>
 {{#each Comments as |comment|}}
 <h3>{{author}}</h3>
