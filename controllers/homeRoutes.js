@@ -40,7 +40,7 @@ router.get('/profile', async (req, res) => {
   });
   const songs = songsData.map((song) => song.get({ plain: true }))
   console.log(songs)
-  res.render('profile', songs);
+  res.render('profile', {songs});
 })
 
 //render profile handlebars template

@@ -37,6 +37,7 @@ router.post('/', async (req, res) => {
 // passing in the entire song for req
 router.delete('/:id', async (req, res) => {
   try {
+    console.log(req.params.id)
     const payload = await Song.destroy({
       where: {
         id: req.params.id
