@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const { Song, Comment } = require("../models")
 //require in withAuth utils folder (code taken from Activity 23 Unit MVC)
-const withAuth = require('../utils/auth');
+// const withAuth = require('../utils/auth');
 
 //render login handlebars template
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const userAuth = await User.findAll({
       attributes: ({ username, password })
@@ -15,60 +15,60 @@ router.get('/', withAuth, async (req, res) => {
     res.render('login', {
       userLoggedIn,
       logged_in: req.session.logged_in,
-    })
+    });
+
   } catch (err) {
     console.log(err);
     res.status(400).json(err.message)
   }
-});
 
-//render signup handlebars template
-router.get('/signup', (req, res) => {
-  res.render('signup')
-})
-
-//render profile handlebars template
-router.get('/profile', (req, res) => {
-  res.render('profile')
-})
-
-router.get('/profile', async (req, res) => {
-  const songsData = await Song.findAll({ where: { user_id: req.session.user_id } });
-  const Songs = songsData.map((song) => {
-    song.get({ plain: true })
+  //render signup handlebars template
+  router.get('/signup', (req, res) => {
+    res.render('signup')
   })
-  console.log(songs)
-  res.render("song", Songs)
 
-})
+  //render profile handlebars template
+  router.get('/profile', (req, res) => {
+    res.render('profile')
+  })
 
-// unused at present, useful for reference
-router.get('/song/:id', async (req, res) => {
-  try {
-    const dbSongData = await Song.findByPk(req.params.id, {
-      include: [
-        {
-          model: Comment,
-          // attributes: [
-          //   'id',
-          //   'title',
-          //   'artist',
-          //   'exhibition_date',
-          //   'filename',
-          //   'description',
-          // ],
-        },
-      ],
-    });
+  router.get('/profile', async (req, res) => {
+    const songsData = await Song.findAll({ where: { user_id: req.session.user_id } });
+    const Songs = songsData.map((song) => {
+      song.get({ plain: true })
+    })
+    console.log(songs)
+    res.render("song", Songs)
 
-    const song = dbSongData.get({ plain: true });
-    console.log(song)
-    // 'song' refers to song.handlbar
-    res.render('song', song);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+  })
 
-module.exports = router;
+  // unused at present, useful for reference
+  router.get('/song/:id', async (req, res) => {
+    try {
+      const dbSongData = await Song.findByPk(req.params.id, {
+        include: [
+          {
+            model: Comment,
+            // attributes: [
+            //   'id',
+            //   'title',
+            //   'artist',
+            //   'exhibition_date',
+            //   'filename',
+            //   'description',
+            // ],
+          },
+        ],
+      });
+
+      const song = dbSongData.get({ plain: true });
+      console.log(song)
+      // 'song' refers to song.handlbar
+      res.render('song', song);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+
+  module.exports = router;
