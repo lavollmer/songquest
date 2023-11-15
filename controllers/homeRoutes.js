@@ -9,6 +9,17 @@ router.get('/signup', (req, res) => {
   res.render('signup')
 })
 
+router.get('/profile', async (req, res) => {
+  const songsData = await Song.findAll({ where: { user_id: req.session.user_id } });
+   const Songs = songsData.map((song) => {
+    song.get({plain:true})
+   })
+   console.log(songs)
+   res.render("song", Songs)
+
+})
+
+// unused at present, useful for reference
 router.get('/song/:id', async (req, res) => {
   try {
     const dbSongData = await Song.findByPk(req.params.id, {
