@@ -35,27 +35,25 @@ router.get('/signup', (req, res) => {
 
 router.get('/profile', async (req, res) => {
   const songsData = await Song.findAll({ where: { user_id: req.session.user_id } });
-  const Songs = songsData.map((song) => {
-    song.get({ plain: true })
-  })
-  console.log(Songs)
-  res.render('profile', Songs);
+  const songs = songsData.map((song) => song.get({ plain: true }))
+  console.log(songs)
+  res.render('profile', songs);
 })
 
 //render profile handlebars template
-router.get('/profile', (req, res) => {
-  res.render('profile')
-})
+// router.get('/profile', (req, res) => {
+//   res.render('profile')
+// })
 
-router.get('/profile', async (req, res) => {
-  const songsData = await Song.findAll({ where: { user_id: req.session.user_id } });
-  const Songs = songsData.map((song) => {
-    song.get({ plain: true })
-  })
-  console.log(songs)
-  res.render("song", Songs)
+// router.get('/profile', async (req, res) => {
+//   const songsData = await Song.findAll({ where: { user_id: req.session.user_id } });
+//   const Songs = songsData.map((song) => {
+//     song.get({ plain: true })
+//   })
+//   console.log(songs)
+//   res.render("song", Songs)
 
-})
+// })
 
 // unused at present, useful for reference
 router.get('/song/:id', async (req, res) => {
