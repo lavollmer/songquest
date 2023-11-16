@@ -34,7 +34,7 @@ router.get('/signup', (req, res) => {
 //   res.render('profile')
 // })
 
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/profile', async (req, res) => {
   try{
     const songsData = await Song.findAll({
       where: { user_id: req.session.user_id },
