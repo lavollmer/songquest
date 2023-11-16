@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const Model = require('../../models/User');
 
-// const Model = User
-
 // this should be connected to the "create a song" button
 router.post('/', async (req, res) => {
   try {

@@ -43,11 +43,3 @@ Comment.init(
 );
 
 module.exports = Comment;
-
-// gallery_id: {
-//   type: DataTypes.INTEGER,
-//   references: {
-//     model: 'gallery',
-//     key: 'id',
-//   },
-// }

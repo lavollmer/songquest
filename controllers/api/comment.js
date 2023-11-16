@@ -1,15 +1,15 @@
 const router = require('express').Router();
 const Model = require('../../models/Comment');
 
-// const Model = User
 
 // this should be connected to the "create a song" button
 router.post('/:id', async (req, res) => {
   try {
-    const payload = await Model.create({...req.body,
-    user_id: req.session.user_id,
-    author: req.session.username,
-    song_id: req.params.id
+    const payload = await Model.create({
+      ...req.body,
+      user_id: req.session.user_id,
+      author: req.session.username,
+      song_id: req.params.id
     });
     res.status(200).json({ status: 'success', payload })
   } catch (err) {
@@ -17,8 +17,7 @@ router.post('/:id', async (req, res) => {
   }
 })
 
-// this should be connected to the "delete this song" button
-// passing in the entire song for req
+
 router.delete('/:id', async (req, res) => {
   try {
     const payload = await Model.destroy({
