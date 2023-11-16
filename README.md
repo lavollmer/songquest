@@ -2,7 +2,7 @@
 
 ## Description
 
-SongQuest is a website for songwriters and music producers. The end user starts by either logging in or signing up as a user to upload music. In their profile, they are able to upload their music by song title, song link and author. Additionally, they are able to see other users, and their comments under youtube videos. The end user is able to add their own comments to the profile page.
+SongQuest is a website for songwriters and music producers. The end user starts by either logging in or signing up as a user to upload music. In their profile, they are able to upload their music by song title, song link and author. Additionally, they are able to see other users, and their comments under youtube videos. The end user is able to add their own comments to the profile page. The website is a responsive, interactive and uses iFrame to embed Youtube videos.
 
 ## Table of Contents
 
@@ -34,18 +34,20 @@ SongQuest is a website for songwriters and music producers. The end user starts 
   <a id="technicalrequirements"></a>
 ## Technical Requirements
 Technical requirements of the website included:
-* MVC Structure
+* MVC paradigm Structure
 * Javascript for functionality
 * JQUERY 
 * Bootstrap CSS for styling
-* Handlebars
-* Express
+* Handlebars.js
+* Express.js 
 * Node.js
 * Heroku Deployment
-* Sequelize
+* Sequelize ORM
 * mySQL2
 * bcrypt
 * dotenv
+* iFrame Youtube Video Embed
+* Express-Session and Cookies
 
   <a id="credits"></a>
 ## Credits
