@@ -4,27 +4,12 @@ const { Song, Comment } = require("../models")
 const withAuth = require('../utils/auth');
 
 //render login handlebars template
-<<<<<<< HEAD
-//
-router.get('/', async (req, res) => { // withAuth before async,
-  try {
-    // const userAuth = await User.findAll({
-    //   attributes: ({ username, password })
-    // });
-    // // taking returned data of userAuth and changing it from an array to plain text
-    // const userLoggedIn = userAuth.map((userDataTwo) => userDataTwo.get({ plain: true }))
-    // // render the login handlebars template with the 2nd argument of the plain text data and logged_In status of yes
-    res.render('login', {
-      // userLoggedIn,
-      // logged_in: req.session.logged_in,
-    }
-=======
 // withAuth before async,
 router.get('/', async (req, res) => {
   try {
     //const userAuth = await User.findAll({
-       //attributes: ({ username, password })
-     //});
+    //attributes: ({ username, password })
+    //});
     //taking returned data of userAuth and changing it from an array to plain text
     //const userLoggedIn = userAuth.map((userDataTwo) => userDataTwo.get({ plain: true }))
     //render the login handlebars template with the 2nd argument of the plain text data and logged_In status of yes
@@ -32,7 +17,6 @@ router.get('/', async (req, res) => {
       //userLoggedIn,
       //logged_in: req.session.logged_in,
       //}
->>>>>>> main
     )
   } catch (err) {
     console.log(err);
