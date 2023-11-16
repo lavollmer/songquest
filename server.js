@@ -1,11 +1,8 @@
-
-
 const express = require('express');
 const path = require('path');
 const app = express();
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
-// const { ok } = require('assert');
 
 const PORT = process.env.PORT || 3001;
 
@@ -37,13 +34,8 @@ const sess = {
 };
 app.use(session(sess));
 
-// all other routes are directed elsewhere
-// if routes are breaking, maybe check this first
 app.use('/', routes);
 
-//const okToSync = (process.env.NODE_ENV === 'production') ? false : true;
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
-
-// git remote add origin https://github.com/lavollmer/songquest.git

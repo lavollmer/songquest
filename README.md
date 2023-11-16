@@ -34,7 +34,7 @@ SongQuest is a website for songwriters and music producers. The end user starts 
   <a id="technicalrequirements"></a>
 ## Technical Requirements
 Technical requirements of the website included:
-* MVC paradigm Structure
+* MVC Paradigm Structure
 * Javascript for functionality
 * JQUERY 
 * Bootstrap CSS for styling
@@ -49,6 +49,8 @@ Technical requirements of the website included:
 * iFrame Youtube Video Embed
 * Express-Session and Cookies
 
+Song link has to be the Youtube embed link found on share in order to function properly.
+
   <a id="credits"></a>
 ## Credits
 
@@ -60,6 +62,8 @@ Tutoring services and TAs were used to help debug, help with logic and coding.
 
 Activity 24 in Unit 14 MVC inspired and provided code for the signup, login, and logout sections of this project. 
 
+
   <a id="license"></a>
+
 ## License
 No license

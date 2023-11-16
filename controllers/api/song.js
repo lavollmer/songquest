@@ -9,11 +9,11 @@ const router = require('express').Router();
 
 router.get('/', async (req, res) => {
   const songsData = await Song.findAll({ where: { user_id: req.session.user_id } });
-   const Songs = songsData.map((song) => {
-    song.get({plain:true})
-   })
-   console.log(songs)
-   res.render("song", Songs)
+  const Songs = songsData.map((song) => {
+    song.get({ plain: true })
+  })
+  console.log(songs)
+  res.render("song", Songs)
 
 })
 
@@ -21,18 +21,16 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     console.log(req.body)
-    const payload = await Song.create({...req.body,
-      user_id: req.session.user_id,});
+    const payload = await Song.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
     res.status(200).json({ status: 'success', payload })
   } catch (err) {
     res.status(500).json({ status: 'error', sendback: err.message })
   }
 })
 
-// const newProject = await Project.create({
-//   ...req.body,
-//   user_id: req.session.user_id,
-// });
 
 // this should be connected to the "delete this song" button
 // passing in the entire song for req

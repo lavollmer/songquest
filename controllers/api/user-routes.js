@@ -10,13 +10,6 @@ router.post('/login', async (req, res) => {
     const userData = await User.findOne({ where: { username: req.body.username } });
     console.log(userData)
     const user = userData.get({ plain: true })
-    // if (!userData) {
-    //   res
-    //     .status(400)
-    //     .json({ message: 'Incorrect email or password, please try again' });
-    //   return;
-    // }
-    //check password for validity
     const validPassword = await userData.checkPassword(req.body.password);
     console.log(validPassword)
     if (!validPassword) {
@@ -64,23 +57,11 @@ router.post('/signup', async (req, res) => {
     console.log(userSignupData);
     const userSignup = userSignupData.get({ plain: true })
     req.session.save(() => {
-<<<<<<< HEAD
-      req.session.user_id = userSignup.id;
-      req.session.username = userSignup.username;
-      req.session.email = userSignup.email;
-=======
       req.session.user_id = userSignupData.id;
->>>>>>> main
       req.session.logged_in = true;
       res.status(200).json({ userSignupData, message: 'You are now logged in!' });
     });
-<<<<<<< HEAD
-    res.status(200).json({ userSignupData, message: 'You are now logged in!' });
     // if the user is successfully created, the new response will be returned as json
-    //res.status(200).json(userSignupData)
-=======
-    // if the user is successfully created, the new response will be returned as json
->>>>>>> main
   } catch (err) {
     res.status(400).json(err);
   }
