@@ -50,6 +50,12 @@ h1 {
     height: 126px;
 }
 
+main {
+    margin-top: 10%;
+    padding: 10%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+}
+
 /* .comment-title {
     color: aliceblue;
     background-color: black;

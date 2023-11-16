@@ -62,12 +62,11 @@ router.post('/signup', async (req, res) => {
       password: req.body.password,
     });
     req.session.save(() => {
-      req.session.user_id = user.id;
+      req.session.user_id = userSignupData.id;
       req.session.logged_in = true;
+      res.status(200).json({ userSignupData, message: 'You are now logged in!' });
     });
-    res.json({ user, message: 'You are now logged in!' });
     // if the user is successfully created, the new response will be returned as json
-    res.status(200).json(userSignupData)
   } catch (err) {
     res.status(400).json(err);
   }
