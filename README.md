@@ -6,26 +6,27 @@ SongQuest is a website for songwriters and music producers. The end user starts 
 
 ## Table of Contents
 
-- [Home Page](#installation)
-- [Profile Page](#usage)
-- [Website Links](#credits)
-- [Technical Requirements](#license)
-- [Credits](#license)
+- [Home Page](#homepage)
+- [Profile Page](#profilepage)
+- [Website Links](#websitelinks)
+- [Technical Requirements](#technicalrequirements)
+- [Credits](#credits)
 - [License](#license)
 
 ## Home Page
 
-![Preview Screenshot]()
+![Preview Main Page Screenshot](./public/assets/img/songquestmainpage.png)
+![Preview Main Page Screenshot](./public/assets/img/songquestmainpage2.png)
 
 ## Profile Page
 
-![Preview Screenshot]()
+![Preview Profile Page Screenshot](./public/assets/img/profilepagesongquest.png)
 
 ## Website Links
 
 * Github Repo:https://github.com/lavollmer/songquest
 
-* Heroku Link Deployment:
+* Heroku Link Deployment:https://songquest-67489ba089f5.herokuapp.com/
 
 ## Technical Requirements
 Technical requirements of the website included:
