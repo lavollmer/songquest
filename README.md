@@ -13,21 +13,25 @@ SongQuest is a website for songwriters and music producers. The end user starts 
 - [Credits](#credits)
 - [License](#license)
 
+  <a id="homepage"></a>
 ## Home Page
 
 ![Preview Main Page Screenshot](./public/assets/img/songquestmainpage.png)
 ![Preview Main Page Screenshot](./public/assets/img/songquestmainpage2.png)
 
+  <a id="profilepage"></a>
 ## Profile Page
 
 ![Preview Profile Page Screenshot](./public/assets/img/profilepagesongquest.png)
 
+  <a id="websitelinks"></a>
 ## Website Links
 
 * Github Repo:https://github.com/lavollmer/songquest
 
 * Heroku Link Deployment:https://songquest-67489ba089f5.herokuapp.com/
 
+  <a id="technicalrequirements"></a>
 ## Technical Requirements
 Technical requirements of the website included:
 * MVC Structure
@@ -38,14 +42,22 @@ Technical requirements of the website included:
 * Express
 * Node.js
 * Heroku Deployment
+* Sequelize
+* mySQL2
+* bcrypt
+* dotenv
 
+  <a id="credits"></a>
 ## Credits
 
 This project was done in conjunction with the U of MN Bootcamp Fall 2023.
 
 This website was created by Matt Stark, Zack Schreier, Sushi Lee and Laura Vollmer.
 
+Tutoring services and TAs were used to help debug, help with logic and coding.
+
 Activity 24 in Unit 14 MVC inspired and provided code for the signup, login, and logout sections of this project. 
 
+  <a id="license"></a>
 ## License
 No license
