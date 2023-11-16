@@ -36,13 +36,8 @@ router.get('/signup', (req, res) => {
 //   res.render('profile')
 // })
 
-<<<<<<< HEAD
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-=======
 router.get('/profile', async (req, res) => {
-  try{
->>>>>>> main
+  try {
     const songsData = await Song.findAll({
       where: { user_id: req.session.user_id },
       include: { model: Comment }
